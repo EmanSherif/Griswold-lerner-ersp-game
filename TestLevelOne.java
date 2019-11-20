@@ -6,22 +6,44 @@ public class TestLevelOne {
   private static final String perfectMsg = "Congratulations! You solved the " +
     "level with the least amount of attempts!";
 
-  private static final String gameDes = "\n\nThe objective of the game is to execute " +
-    "each line of code that you see at least once. For each attempt you will get " +
-    "one point if you execute a new line of code and if not then you will get one " +
-    "point deducted. Try to execute the code with the least amount of tries to " +
-    "maximize your score! Input parameters in the terminal separated by a space. " +
+  private static final String gameDes = "\n\nThe objective of the game is to execute\n" +
+    "each line of code that you see at least once. For each attempt you will get\n" +
+    "one point if you execute a new line of code and if not then you will get one\n" +
+    "point deducted. Try to execute the code with the least amount of tries to\n" +
+    "maximize your score! Input parameters in the terminal separated by a space.\n" +
     "Good Luck!";
 
+  private static final String[] codeWithoutStars = new String[] { "  if(x > 3) {",
+	  							  "    if(x > 6) {",
+								  "      return x + 1;",
+								  "    }",
+								  "    else if(x > 5) {",
+								  "      return x + 2;",
+								  "    }",
+								  "    return x + 3;",
+								  "  }",
+								  "  return x;"};
+
+  private static final String[] codeWithStars = new String[] {  "* if(x > 3) {",
+                                                                "*   if(x > 6) {",
+                                                                "*     return x + 1;",
+                                                                "*   }",
+                                                                "*   else if(x > 5) {",
+                                                                "*     return x + 2;",
+                                                                "*   }",
+                                                                "*   return x + 3;",
+                                                                "* }",
+                                                                "* return x;"};
+
+
   static boolean gameOver = false;
-  static boolean[] linesExecuted = new boolean[10];
+  static boolean[] linesExecuted = new boolean[linesOfCode];
   static int score = 0;
   static int input = 0;
   static int attempts = 0;
   static int fails = 0;
   static boolean newLine = false;
   static int returnVal = 0;
-  static int functionRetVal = 0;
 
   public static void main(String[] args) {
     System.out.println(gameDes + "\n\n"); // prints out game description
@@ -136,74 +158,13 @@ public class TestLevelOne {
     // function name print
     System.out.println("int levelOne(int x) {");
 
-    if(linesExecuted[0]) {
-      System.out.println("* if(x > 3) {");
-    }
-    else {
-      System.out.println("  if(x > 3) {");
-    }
-
-    if(linesExecuted[1]) {
-      System.out.println("*     if(x > 6) {");
-    }
-    else {
-      System.out.println("      if(x > 6) {");
-    }
-
-    if(linesExecuted[2]) {
-      System.out.println("*       return x + 1;");
-    }
-    else {
-      System.out.println("        return x + 1;");
-    }
-
-    if(linesExecuted[3]) {
-      System.out.println("*     }");
-    }
-    else {
-      System.out.println("      }");
-    }
-
-    if(linesExecuted[4]) {
-      System.out.println("*     else if(x > 5) {");
-    }
-    else {
-      System.out.println("      else if(x > 5) {");
-    }
-
-    if(linesExecuted[5]) {
-      System.out.println("*       return x + 2;");
-    }
-    else {
-      System.out.println("        return x + 2;");
-    }
-
-    if(linesExecuted[6]) {
-      System.out.println("*     }");
-    }
-    else {
-      System.out.println("      }");
-    }
-
-    if(linesExecuted[7]) {
-      System.out.println("*     return x + 3;");
-    }
-    else {
-      System.out.println("      return x + 3;");
-    }
-
-    if(linesExecuted[8]) {
-      System.out.println("* }");
-    }
-    else {
-      System.out.println("  }");
-    }
-
-    if(linesExecuted[9]) {
-      System.out.println("* return x;");
-    }
-    else {
-      System.out.println("  return x;");
+    for(int i = 0; i < linesOfCode; i++) {
+      if (linesExecuted[i]) {
+        System.out.println(codeWithStars[i]);
+      }
+      else {
+	System.out.println(codeWithoutStars[i]);
+      }
     }
 
     System.out.println("}\n"); // prints end curly bracket
