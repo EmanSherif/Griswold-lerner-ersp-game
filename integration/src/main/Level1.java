@@ -26,7 +26,6 @@ public class Level1 extends SuperGame {
 
     };
 
-
     public Level1() {
 
         super(perfectAttempts,linesOfCode,gameOver,
