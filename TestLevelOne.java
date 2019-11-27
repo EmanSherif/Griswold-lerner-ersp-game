@@ -58,10 +58,6 @@ public class TestLevelOne {
     if(attempts == perfectAttempts) {
       System.out.println(perfectMsg);
     }
-
-    // prints ending messages
-    System.out.println("Level Complete! Your score was " + (linesOfCode - attempts - fails));
-    System.out.println("Total Attempts: " + attempts);
   }
 
   static void updateScore() {
