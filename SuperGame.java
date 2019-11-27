@@ -2,8 +2,8 @@ public abstract class SuperGame {
     private static String perfectMsg = "Congratulations! You solved the " +
             "level with the least amount of attempts!";
 
-    private static String gameDes = "\n\nThe objective of the game is to execute\n" +
-            "each line of code that you see at least once. You have infinite attempts,\n" + 
+    private static String gameDes = "\n\nThe objective of the game is to execute " +
+      "each line of code that you see at least once. You have infinite attempts,\n" + 
 	    "however the fewer attempts you take, the higher your score will be. Try to execute the code\n" +
 	    "with the least amount of tries to maximize your score! To play, type only the parameters in the \n" +
 	    "terminal separated by a space if need be and press 'Enter'. Good Luck!";
@@ -38,7 +38,7 @@ public abstract class SuperGame {
     public abstract void acquireInput();
 
     public void printStartingMessage() {
-      System.out.println(gameDes);
+      System.out.println(gameDes + "\n\n");
     }
 
     public void printCode (String[] codeWithoutStars, String methodName) {

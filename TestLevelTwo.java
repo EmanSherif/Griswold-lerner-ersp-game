@@ -38,14 +38,20 @@ public class TestLevelTwo extends SuperGame{
         while (!levelTwo.getGameOver()) {
             levelTwo.printCode(codeWithoutStars, methodHeader);
             levelTwo.acquireInput();
-	    levelTwo.analyzeInput();
+						levelTwo.analyzeInput();
             levelTwo.updateScore();
             levelTwo.checkGameOver();
         }
 
         levelTwo.printCode(codeWithoutStars, methodHeader);
-    	levelTwo.checkPerfectAttempts();
-	levelTwo.printEndingMessage();
+				levelTwo.checkPerfectAttempts();
+				levelTwo.printEndingMessage();
+    }
+
+    public void acquireInput() {
+        Scanner takesInput = new Scanner(System.in);
+        input = takesInput.nextInt();
+
     }
 
     public void analyzeInput() {
@@ -89,11 +95,4 @@ public class TestLevelTwo extends SuperGame{
       linesExecuted(7);
       setReturnVal(x);
     }
-
-    public void acquireInput() {
-        Scanner takesInput = new Scanner(System.in);
-        input = takesInput.nextInt();
-
-    }
-
 }
