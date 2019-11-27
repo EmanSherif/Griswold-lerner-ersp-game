@@ -56,63 +56,61 @@ public class TestLevelOne extends SuperGame{
   
 	public void analyzeInput() {
 
-    if(input <= 3) {
-      // checks if a new line was executed
-      if(!linesExecuted[0] || !linesExecuted[9]) {
-        newLine = true;
-      }
-
-      linesExecuted(0); // if(x > 3) {
-      linesExecuted(8); // }
-      linesExecuted(9); // return x;
-      returnVal = input;
-      return;
+    if(!linesExecuted[0]) {
+      newLineExecuted();
     }
 
-    if(input == 4 || input == 5) {
-      // checks if a new line was executed
-      if(!linesExecuted[0] || !linesExecuted[1] || !linesExecuted[3] ||
-         !linesExecuted[4] || !linesExecuted[6] || !linesExecuted[7]) {
-        newLine = true;
+    linesExecuted(0); // if(x > 3) {
+    if(input > 3) {
+      if(!linesExecuted[1]) {
+        newLineExecuted();
       }
 
-      linesExecuted(0); // if(x > 3) {
       linesExecuted(1); // if(x > 6) {
-      linesExecuted(3); // }
-      linesExecuted(4); // else if(x > 5) {
-      linesExecuted(6); // }
-      linesExecuted(7); // return x + 3;
+      if(input > 6) {
+        if(!linesExecuted[2]) {
+          newLineExecuted();
+        }
+        
+        linesExecuted(2); // return x + 1;
+        setReturnVal(input + 1);
+        return;
+      }
+
+      if(!linesExecuted[3] || !linesExecuted[4]) {
+        newLineExecuted();
+      }
+
+      linesExecuted(3);
+      linesExecuted(4);
+      
+      if(input > 5) {
+        if(!linesExecuted[5]) {
+          newLineExecuted();
+        }
+
+        linesExecuted(5);
+        setReturnVal(input + 2);
+        return;
+      }
+
+      if(!linesExecuted[6] || !linesExecuted[7]) {
+        newLineExecuted();
+      }
+
+      linesExecuted(6);
+      linesExecuted(7);
       setReturnVal(input + 3);
       return;
     }
 
-    if(input == 6) {
-      // checks if a new line was executed
-      if(!linesExecuted[0] || !linesExecuted[1] || !linesExecuted[3] ||
-         !linesExecuted[4] || !linesExecuted[5]) {
-        newLine = true;
-      }
-
-      linesExecuted(0); // if(x > 3) {
-      linesExecuted(1); // if(x > 6) {
-      linesExecuted(3); // }
-      linesExecuted(4); // else if(x > 5) {
-      linesExecuted(5); // return x + 2;
-      setReturnVal(input + 2);
-			return;
+    if(!linesExecuted[8] || !linesExecuted[9]) {
+      newLineExecuted();
     }
 
-    if(input >= 7) {
-      // checks if a new line was executed
-      if(!linesExecuted[0] || !linesExecuted[1] || !linesExecuted[2]) {
-        newLine = true;
-      }
-
-      linesExecuted(0); // if(x > 3) {
-      linesExecuted(1); // if(x > 6) {
-      linesExecuted(2); // return x + 1;
-      setReturnVal(input + 1);
-      return;
-    }
+    linesExecuted(8);
+    linesExecuted(9);
+    setReturnVal(input);
+    return;
   }
 }
