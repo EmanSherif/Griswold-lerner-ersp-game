@@ -46,7 +46,8 @@ public class TestLevelOne extends SuperGame{
 
 		levelOne.printCode(codeWithoutStars, methodHeader);
 		levelOne.checkPerfectAttempts();
-		levelOne.printEndingMessage();
+    levelOne.printEndingMessage();
+    levelOne.printLeaderboard();
   }
 
 	public void acquireInput() {
@@ -113,4 +114,39 @@ public class TestLevelOne extends SuperGame{
     setReturnVal(input);
     return;
   }
+  public void printLeaderboard() {
+  boolean includesPlayer = false;
+  System.out.println( ANSI_YELLOW + "\nLeaderboard" + ANSI_RESET);
+  ArrayList<Integer> fakeScores = new ArrayList<Integer>();
+  fakeScores.add(2);
+  fakeScores.add(8);
+  fakeScores.add(4);
+  fakeScores.add(1);
+  fakeScores.add(getScore());
+  Collections.sort(fakeScores);
+  ArrayList<String> fakeScoresString = new ArrayList<String>();
+  for(int i = 4; i >= 0; i--) {
+    if (!includesPlayer){
+      if (fakeScores.get(i) == getScore()) {
+        String player = ANSI_YELLOW + Integer.toString(fakeScores.get(i)) +
+                        ANSI_RESET;
+        fakeScoresString.add(player);
+        includesPlayer = true;
+      }
+    }
+    String str = Integer.toString(fakeScores.get(i));
+    fakeScoresString.add(str);
+  }
+  /*ArrayList<String> fakeNames = new ArrayList<String>();
+  fakeNames.add("John");
+  fakeNames.add("Karen");
+  fakeNames.add("Jerry");
+  fakeNames.add("Carmina");
+  fakeNames.add("Carol");
+  */
+  for(int j = 1; j <= 5; j++){
+    System.out.println( j + ". " + fakeScoresString.get(j-1));
+  }
+  return;
+ }
 }

@@ -1,6 +1,31 @@
 public abstract class SuperGame {
-    private static String perfectMsg = "Congratulations! You solved the " +
-            "level with the least amount of attempts!";
+     /**
+     * Different colored text
+     */
+    public static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_BLACK = "\u001B[30m";
+    private static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_PURPLE = "\u001B[35m";
+    private static final String ANSI_CYAN = "\u001B[36m";
+    private static final String ANSI_WHITE = "\u001B[37m";
+
+    /**
+     * Different colored backgrounds
+     */
+    private static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+    private static final String ANSI_RED_BACKGROUND = "\u001B[41m";
+    private static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    private static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
+    private static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
+    private static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
+    private static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
+    private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+
+    private static String perfectMsg = ANSI_GREEN + "Congratulations!" + ANSI_RESET + " You solved the" +
+            " level with the least amount of attempts!";
 
     private static String gameDes = "\n\nThe objective of the game is to execute " +
       "each line of code that you see at least once. You have infinite attempts,\n" + 
@@ -9,13 +34,13 @@ public abstract class SuperGame {
 	    "terminal separated by a space if need be and press 'Enter'. Good Luck!";
     
     private int perfectAttempts;
-    private int linesOfCode;
+    public int linesOfCode;
     private boolean gameOver;
     private boolean[] linesExecuted;
-    private int score;
+    public int score;
     private int input;
-    private int attempts;
-    private int fails;
+    public int attempts;
+    public int fails;
     private boolean newLine;
     private int returnVal;
 
@@ -36,6 +61,7 @@ public abstract class SuperGame {
     // abstract methods for each level to implement
     public abstract void analyzeInput();
     public abstract void acquireInput();
+    public abstract void printLeaderboard();
 
     public void printStartingMessage() {
       System.out.println(gameDes + "\n\n");
@@ -81,6 +107,10 @@ public abstract class SuperGame {
       return gameOver;
     }
 
+    public int getScore() {
+      return score;
+    }
+
     public void updateScore(){
         if(!newLine) {
             fails++; // increases total attempts to penalize the player
@@ -105,7 +135,8 @@ public abstract class SuperGame {
     }
 
     public void printEndingMessage() {
-      System.out.println("Level Complete! Your score was " + (linesOfCode - attempts - fails));
+      score = linesOfCode - attempts - fails;
+      System.out.println("Level Complete! Your score was " + (score));
       System.out.println("Total Attempts: " + attempts);	
     }
 
