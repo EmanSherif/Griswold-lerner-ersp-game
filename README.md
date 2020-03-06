@@ -13,9 +13,9 @@ Same as the game, except there are no graphical components or visuals.
 
 ## TODO:
 
--Implement 4 more levels to the game
--Implement 4 more levels to the quiz
--Create a "leaderboard" screen for game
--Create tutorial for quiz
--Create animations for the game
--Fix sounds/add better sound tracks
+- Implement 4 more levels to the game
+- Implement 4 more levels to the quiz
+- Create a "leaderboard" screen for game
+- Create tutorial for quiz
+- Create animations for the game
+- Fix sounds/add better sound tracks
