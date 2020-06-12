@@ -1,4 +1,4 @@
-# CodeBot and Quiz
+# CoverBot and Quiz
 
 A turn-based game based on helping students learn about software testing - specifcally statement coverage. We will be comparing this game 
 with an ungamified version (Quiz) to see which one is more engaging, motivating, and fun.
